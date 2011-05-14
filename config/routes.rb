@@ -1,4 +1,16 @@
 Wishs3::Application.routes.draw do
+  
+  resources :forms
+  resources :users
+  resources :sessions,    :only => [:new, :create, :destroy]
+  match '/contact',       :to => 'pages#contact'
+  match '/about',         :to => 'pages#about'
+  match '/help',          :to => 'pages#help'
+  match '/match',         :to => 'pages#match'
+  match '/search',        :to => 'pages#search'
+  match '/signup',        :to => 'users#new'
+  match '/signin',        :to => 'pages#signin'
+  match '/signout',       :to => 'pages#sign_out'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
