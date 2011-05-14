@@ -1,0 +1,72 @@
+<td style="font-weight:bold">
+  Title
+</td>
+<td style="font-weight:bold">
+  Requestor
+</td>
+<td style="font-weight:bold">
+  Description
+</td>
+<td style="font-weight:bold">
+  Pictures
+</td>
+<td style="font-weight:bold">
+  Link
+</td>
+
+<%flag=false%>
+<%number=false%>
+
+
+<% @uri_json.each do |r|%>
+    <tr>
+      <% r.each do |b,c|  %>
+
+          <%unless b.match('id')%>
+              <td>
+                <%if b.match("picture")%>
+                    <%= image_tag("#{c}", :alt => "#{c}") %>
+                <%else%>
+                    <%=c %>
+                <%end%>
+              </td>
+          <%end%>
+
+          <%['2','4','7','10'].each do |g| %>
+              <%if g == c.to_s%>
+                  <%flag = true%>
+                  <%number = c%>
+              <%end%>
+
+          <%end%>
+      <%end%>
+      <%if flag == true%>
+          <td>
+            <%if number == 2%>
+            <%= link_to('Your match', 'http://sfbay.craigslist.org/sby/sys/2369533227.html') %>
+            <%elsif number == 5%>
+            <%= link_to('Your match', 'http://sfbay.craigslist.org/sby/sys/2367781108.html') %>
+            <%elsif number == 7%>
+            <%= link_to('Your match', 'http://sfbay.craigslist.org/sby/sys/2369637331.html') %>
+            <%elsif number == 10%>
+            <%= link_to('Your match', 'http://sfbay.craigslist.org/sfc/sys/2369618250.html') %>
+            <%end%>
+
+          </td>
+      <%end%>
+      <%flag=false%>
+    </tr>
+
+<%end %>
+
+
+
+
+
+
+
+
+
+
+
+

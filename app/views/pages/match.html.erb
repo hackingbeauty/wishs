@@ -1,0 +1,30 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title><%= title %></title>
+  <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
+  <%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
+  <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
+
+  <%= javascript_include_tag 'jquery' %>
+  <%= stylesheet_link_tag 'custom', :media => 'screen' %>
+</head>
+<body>
+<div class="container">
+  <%= render 'layouts/header' %>
+  <div id="content" class="round">
+    <table>
+
+      <%=render :partial=>'wishlist'%>
+
+    </table>
+  </div>
+  <%= render 'layouts/footer' %>
+  <%= debug(params) if Rails.env.development? %>
+</div>
+</body>
+</html>
+
+
+
+
+
